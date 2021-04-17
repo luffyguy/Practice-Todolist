@@ -2,7 +2,7 @@ const express = require("express");
 const Notes = require("../controllers/notes")
 const router = express.Router();
 
-router.get("/", Notes.getNote);
-router.post("/", Notes.postNote);
+router.get("/read", Notes.getNote);
+router.post("/insert", Notes.postNote);
 
 module.exports = router;

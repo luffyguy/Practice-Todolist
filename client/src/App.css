@@ -1,0 +1,31 @@
+* {
+  margin: 0;
+}
+
+/* Notes */
+.container {
+  margin-top: 50px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Navbar */
+.navbar {
+  padding-left: 30px;
+  background-color: darkgray;
+  min-height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  font-size: 20px;
+  color: white;
+}
+
+.navbar p {
+  font-size: 35px;
+  color: white;
+  font-weight: bold;
+}

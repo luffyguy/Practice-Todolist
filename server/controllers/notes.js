@@ -1,14 +1,12 @@
 const noteModel = require("../models/notes");
 
 const getNote = async (req, res) => {
-  try {
-    const noteGet = await noteModel.find();
-    res.status(200).json(noteGet);
-    res.json(note);
-  } catch (error) {
-    res.send("Error" + error);
-    res.status(404).json({ message: error.message });
-  }
+  await noteModel.find({}, (error, result) => {
+    if (error) {
+      console.log(error);
+    }
+    res.send(result);
+  });
 };
 
 const postNote = async (req, res) => {
@@ -17,12 +15,10 @@ const postNote = async (req, res) => {
     noteContent: req.body.noteContent,
   });
   try {
-    const n1 = await notePost.save();
-    res.status(200).json(n1);
-    res.json(n1);
+    await notePost.save();
+    res.send("inserted data");
   } catch (error) {
     res.send("Error" + error);
-    res.status(404).json({ message: error.message });
   }
 };
 
