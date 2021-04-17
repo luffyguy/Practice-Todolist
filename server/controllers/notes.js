@@ -22,7 +22,19 @@ const postNote = async (req, res) => {
   }
 };
 
+const deleteNote = async (req, res) => {
+  const id = req.params.id;
+  console.log(id);
+  try {
+    await noteModel.findByIdAndDelete(id);
+    res.send("deleted");
+    res.json(note);
+  } catch (error) {
+    res.send("Error" + error);
+  }
+};
 module.exports = {
   getNote,
   postNote,
+  deleteNote,
 };
